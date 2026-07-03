@@ -1,0 +1,59 @@
+:root {
+  --color-primary: #2D6A6A;
+  --color-primary-dark: #1F4E4E;
+  --color-primary-light: #4A8C8C;
+  --color-accent: #F4A261;
+  --color-accent-dark: #E08A3E;
+  --color-bg: #FAF7F0;
+  --color-surface: #FFFFFF;
+  --color-text: #2C3E3E;
+  --color-text-light: #6B7D7D;
+  --color-success: #6FA88C;
+  --color-error: #E07856;
+  --color-border: #E0DDD4;
+
+  --font-family: 'Quicksand', sans-serif;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+
+  --shadow-sm: 0 2px 8px rgba(45, 106, 106, 0.08);
+  --shadow-md: 0 4px 16px rgba(45, 106, 106, 0.12);
+
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 40px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 600;
+  color: var(--color-primary-dark);
+}
+
+button {
+  font-family: var(--font-family);
+  cursor: pointer;
+  border: none;
+  border-radius: var(--radius-md);
+  transition: all 0.2s ease;
+}
+
+input, select, textarea {
+  font-family: var(--font-family);
+}
