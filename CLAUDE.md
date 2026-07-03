@@ -19,6 +19,9 @@ API entegrasyonu YOKTUR.
 - PostgreSQL container'ı: memoryapp-postgres, host portu 6543 -> container içi 5432
   (5432 ve 5433 bloklu çıktı, 6543 kullanılıyor)
 - Dosya yükleme (resim/ses): wwwroot/uploads klasöründe diskte saklanır, veritabanında sadece dosya yolu tutulur.
+- Frontend (Vite) dev sunucusu: port 3000 sabitlendi (vite.config.ts içinde), 5173 varsayılanı
+  Windows'un rezerve aralığına (5077-5976) girdiği için EACCES hatası veriyordu.
+- Backend: 6060, Frontend: 3000, PostgreSQL: 6543 - üçü birbirinden farklı, aynı anda çalışabilirler.
 
 ## Klasör Yapısı
 ai-memory-app/
@@ -107,19 +110,27 @@ karmaşıklığı azaltmak için Word Search tercih edildi, kullanıcı onayıyl
 ## DURUM ÖZETİ: TÜM 7 STORY TAMAMLANDI (50/50 PUAN)
 Story 1,2,3,4,5,6,7 hepsi tamamlandı ve gerçek HTTP istekleriyle doğrulandı.
 
-## SIRADAKI BÜYÜK ADIM: Git init + Secrets Cleanup, sonra Frontend
-Backend fonksiyonel olarak bitti. Şimdi:
-1. Git init + appsettings.Development.json'ı .gitignore'a ekleme (ya da User Secrets'a taşıma) -
-   detay yukarıdaki güvenlik notunda yazılı, MUTLAKA ilk push'tan önce yapılmalı
-2. /weatherforecast cruft'unu Program.cs'ten temizleme
-3. Frontend (React+TypeScript+Vite) kurulumuna başlama
+## GIT KURULUMU (TAMAMLANDI)
+- Repo: https://github.com/aytasfatma/memoryapp-word-learning (public)
+- .gitignore ile appsettings.Development.json hariç tutuldu, appsettings.Development.json.example
+  şablon olarak eklendi (placeholder değerlerle)
+- 2 commit atıldı: a000b55 (initial, backend tamamlandı) ve 6718cc1 (weatherforecast cruft temizliği)
+- GitHub CLI (gh) ile push edildi, aytasfatma hesabı authenticate edildi
 
-## GÜVENLİK/TEMİZLİK - HENÜZ YAPILMADI
-- SMTP şifresi appsettings.Development.json'da düz metin duruyor - Git kurulumunda MUTLAKA
-  appsettings.Development.json .gitignore'a eklenmeli YA DA sırlar User Secrets'a taşınmalı
-- Proje henüz git deposu değil (git init hiç yapılmadı)
-- Varsayılan /weatherforecast endpoint'i hâlâ Program.cs'te duruyor, temizlenecek
-- Bunlar Story'ler bitince ya da uygun bir arada toplu halde temizlenecek
+## SIRADAKI BÜYÜK ADIM: Frontend Kurulumu (React + TypeScript + Vite)
+Backend tamamen bitti (50/50 puan, Git kurulumu dahil). Şimdi frontend'e başlanacak.
+Frontend henüz hiç oluşturulmadı, sıfırdan kurulacak.
+
+## Frontend Tasarım Kimliği (kullanıcı onaylı)
+- Ruh hali: Sakin ve odaklı (ders çalışma hissi), yeşil/mavi tonları
+- Ana renk: Derin teal/çam yeşili (#2D6A6A civarı)
+- Vurgu rengi: Yumuşak mercan/turuncu (#F4A261 civarı) - CTA butonları, doğru cevap vurgusu için
+- Arka plan: Kırık beyaz/krem (#FAF7F0), saf beyaz DEĞİL
+- Tipografi: Yuvarlak hatlı, samimi bir Google Font (Quicksand veya Nunito)
+- Köşeler: Belirgin border-radius, sert/kurumsal görünüm İSTENMİYOR
+- State management: Basit useState/Context API, ekstra kütüphane (Redux, Zustand vs.) YOK
+- Stil yaklaşımı: Sade CSS (Tailwind/Bootstrap/MUI gibi hazır kütüphaneler YOK) - şablon gibi
+  görünmeyen, özgün bir tasarım isteniyor
 
 ## UI/UX Kuralları (proje notlandırmasında ayrı puan kalemi - 5p)
 - Sade, tutarlı tasarım dili: tüm sayfalarda aynı renk paleti, font, buton stili
