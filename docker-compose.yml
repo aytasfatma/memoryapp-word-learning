@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: memoryapp-postgres
+    environment:
+      POSTGRES_USER: memoryapp
+      POSTGRES_PASSWORD: devpassword123
+      POSTGRES_DB: memoryappdb
+    ports:
+      - "6543:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

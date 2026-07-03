@@ -1,0 +1,21 @@
+# Build çıktıları
+backend/bin/
+backend/obj/
+backend/Migrations/*.Designer.cs.orig
+
+# Hassas ayarlar (SMTP şifresi, JWT key içeriyor)
+backend/appsettings.Development.json
+
+# Yüklenen dosyalar (kullanıcı içerikleri, repo'ya girmemeli)
+backend/wwwroot/uploads/**/*
+!backend/wwwroot/uploads/**/.gitkeep
+
+# IDE/OS dosyaları
+.vs/
+.vscode/
+*.user
+.DS_Store
+
+# Node (frontend için ileride)
+node_modules/
+dist/
