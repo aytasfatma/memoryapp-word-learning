@@ -8,6 +8,7 @@ import { Words } from './pages/Words';
 import { Quiz } from './pages/Quiz';
 import { Settings } from './pages/Settings';
 import { Analytics } from './pages/Analytics';
+import { Puzzle } from './pages/Puzzle';
 import type { ReactNode } from 'react';
 
 function ProtectedRoute({ children }: { children: ReactNode }) {
@@ -54,6 +55,14 @@ function AppRoutes() {
           element={
             <ProtectedRoute>
               <Analytics />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/puzzle"
+          element={
+            <ProtectedRoute>
+              <Puzzle />
             </ProtectedRoute>
           }
         />

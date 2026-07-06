@@ -1,0 +1,124 @@
+.puzzle-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: var(--spacing-xl);
+}
+
+.puzzle-menu {
+  width: 100%;
+}
+
+.puzzle-header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.puzzle-header h1 {
+  margin: 0 0 8px 0;
+  color: var(--color-primary-dark);
+  font-size: 32px;
+}
+
+.puzzle-header p {
+  margin: 0;
+  color: var(--color-text-light);
+  font-size: 16px;
+}
+
+.puzzle-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.puzzle-option {
+  padding: var(--spacing-xl);
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.puzzle-option:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.puzzle-icon {
+  font-size: 48px;
+  margin-bottom: var(--spacing-md);
+}
+
+.puzzle-option h2 {
+  margin: 0 0 var(--spacing-sm) 0;
+  color: var(--color-primary-dark);
+  font-size: 18px;
+}
+
+.puzzle-option p {
+  margin: 0 0 var(--spacing-lg) 0;
+  font-size: 14px;
+  color: var(--color-text-light);
+}
+
+.game-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--spacing-xl);
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.game-header h1 {
+  margin: 0;
+  color: var(--color-primary-dark);
+}
+
+.game-stats {
+  display: flex;
+  gap: var(--spacing-lg);
+  font-size: 14px;
+  color: var(--color-text-light);
+  font-weight: 600;
+}
+
+.game-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  font-size: 16px;
+  color: var(--color-text-light);
+}
+
+.feedback-banner {
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: var(--spacing-lg);
+}
+
+.feedback-banner.correct {
+  background-color: rgba(111, 168, 140, 0.2);
+  color: var(--color-success);
+  border-left: 3px solid var(--color-success);
+}
+
+.feedback-banner.incorrect {
+  background-color: rgba(224, 120, 86, 0.2);
+  color: var(--color-error);
+  border-left: 3px solid var(--color-error);
+}
+
+.error {
+  color: var(--color-error);
+  font-size: 14px;
+  background-color: rgba(224, 120, 86, 0.1);
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--spacing-lg);
+}
