@@ -1,0 +1,136 @@
+.words-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-xl);
+}
+
+.words-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.words-header h1 {
+  margin: 0;
+  color: var(--color-primary-dark);
+}
+
+.add-word-form {
+  margin-bottom: var(--spacing-xl);
+  max-width: 600px;
+}
+
+.add-word-form h2 {
+  margin-top: 0;
+  margin-bottom: var(--spacing-lg);
+  color: var(--color-primary-dark);
+}
+
+.add-word-form form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.form-group input[type='file'] {
+  padding: 8px;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+.words-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.word-card {
+  padding: var(--spacing-lg);
+}
+
+.word-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: var(--spacing-md);
+}
+
+.word-header h3 {
+  margin: 0;
+  color: var(--color-primary-dark);
+  font-size: 20px;
+}
+
+.word-translation {
+  font-size: 14px;
+  color: var(--color-accent);
+  font-weight: 600;
+  margin: 0 0 var(--spacing-sm) 0;
+}
+
+.word-topic {
+  font-size: 12px;
+  color: var(--color-text-light);
+  margin: 4px 0;
+  background-color: rgba(45, 106, 106, 0.05);
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+}
+
+.word-hint {
+  font-size: 13px;
+  color: var(--color-primary);
+  margin: var(--spacing-sm) 0;
+  padding: 8px;
+  background-color: rgba(244, 162, 97, 0.1);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--color-accent);
+}
+
+.word-samples {
+  margin-top: var(--spacing-md);
+}
+
+.word-samples .label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0 0 6px 0;
+}
+
+.word-samples .sample {
+  font-size: 12px;
+  color: var(--color-text-light);
+  margin: 4px 0;
+  line-height: 1.4;
+}
+
+.loading,
+.empty {
+  text-align: center;
+  font-size: 16px;
+  color: var(--color-text-light);
+  padding: var(--spacing-xl) 0;
+}
+
+.error {
+  color: var(--color-error);
+  font-size: 14px;
+  background-color: rgba(224, 120, 86, 0.1);
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  margin: var(--spacing-md) 0;
+}
