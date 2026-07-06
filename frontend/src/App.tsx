@@ -5,6 +5,7 @@ import { Register } from './pages/Register';
 import { Navbar } from './components/Navbar';
 import { Dashboard } from './pages/Dashboard';
 import { Words } from './pages/Words';
+import { Quiz } from './pages/Quiz';
 import type { ReactNode } from 'react';
 
 function ProtectedRoute({ children }: { children: ReactNode }) {
@@ -27,6 +28,14 @@ function AppRoutes() {
           element={
             <ProtectedRoute>
               <Words />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/quiz"
+          element={
+            <ProtectedRoute>
+              <Quiz />
             </ProtectedRoute>
           }
         />
