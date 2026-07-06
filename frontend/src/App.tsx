@@ -6,6 +6,7 @@ import { Navbar } from './components/Navbar';
 import { Dashboard } from './pages/Dashboard';
 import { Words } from './pages/Words';
 import { Quiz } from './pages/Quiz';
+import { Settings } from './pages/Settings';
 import type { ReactNode } from 'react';
 
 function ProtectedRoute({ children }: { children: ReactNode }) {
@@ -36,6 +37,14 @@ function AppRoutes() {
           element={
             <ProtectedRoute>
               <Quiz />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/settings"
+          element={
+            <ProtectedRoute>
+              <Settings />
             </ProtectedRoute>
           }
         />
