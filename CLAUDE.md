@@ -22,6 +22,7 @@ API entegrasyonu YOKTUR.
 - Frontend (Vite) dev sunucusu: port 3000 sabitlendi (vite.config.ts içinde), 5173 varsayılanı
   Windows'un rezerve aralığına (5077-5976) girdiği için EACCES hatası veriyordu.
 - Backend: 6060, Frontend: 3000, PostgreSQL: 6543 - üçü birbirinden farklı, aynı anda çalışabilirler.
+- **ÖNEMLI:** Her geliştirme oturumundan önce Docker Desktop'ın açık olduğunu kontrol et (docker ps ile); kapalıysa PostgreSQL container'ı çalışmaz ve backend 500 hatası verir.
 
 ## Klasör Yapısı
 ai-memory-app/
@@ -117,10 +118,6 @@ Story 1,2,3,4,5,6,7 hepsi tamamlandı ve gerçek HTTP istekleriyle doğrulandı.
 - 2 commit atıldı: a000b55 (initial, backend tamamlandı) ve 6718cc1 (weatherforecast cruft temizliği)
 - GitHub CLI (gh) ile push edildi, aytasfatma hesabı authenticate edildi
 
-## SIRADAKI BÜYÜK ADIM: Frontend Kurulumu (React + TypeScript + Vite)
-Backend tamamen bitti (50/50 puan, Git kurulumu dahil). Şimdi frontend'e başlanacak.
-Frontend henüz hiç oluşturulmadı, sıfırdan kurulacak.
-
 ## Frontend Tasarım Kimliği (kullanıcı onaylı)
 - Ruh hali: Sakin ve odaklı (ders çalışma hissi), yeşil/mavi tonları
 - Ana renk: Derin teal/çam yeşili (#2D6A6A civarı)
@@ -131,6 +128,31 @@ Frontend henüz hiç oluşturulmadı, sıfırdan kurulacak.
 - State management: Basit useState/Context API, ekstra kütüphane (Redux, Zustand vs.) YOK
 - Stil yaklaşımı: Sade CSS (Tailwind/Bootstrap/MUI gibi hazır kütüphaneler YOK) - şablon gibi
   görünmeyen, özgün bir tasarım isteniyor
+
+## FRONTEND KURULUMU (BAŞLANDI VE TEMEL ALTYAPISI TAMAMLANDI)
+- Vite + React + TypeScript + react-router-dom kuruldu
+- Tasarım kimliği uygulandı: theme.css (teal/mercan/krem paleti, Quicksand font, CSS değişkenleri)
+- API katmanı kuruldu: api/client.ts (backend'e token ile istek atan fonksiyon), api/auth.ts (register/login/forgot-password/reset-password)
+- State yönetimi: AuthContext.tsx (giriş durumu takibi, token + user bilgisi localStorage'da)
+- Ortak component'ler: Button (3 varyant), Input (hata gösterimi), Card (kartlar)
+- Routing: App.tsx'de /login, /register (genel), / (korumalı routes)
+- CORS: Backend Program.cs'e AllowFrontend policy eklendi, localhost:3000 akses verilebiliyor
+- Sayfa yazımı: Login.tsx, Register.tsx → **gerçek backend bağlantısı başarıyla test edildi** (register + login başarılı)
+
+## SİRADAKİ ADIM: Kalan Frontend Sayfaları (Dashboard + CRUD + Quiz + Analytics + Puzzle)
+Yazılması gereken:
+1. Dashboard (ana sayfa, kullanıcı hoş geldiniz ve menü)
+2. Words/WordList (Kelime Listesi, Ekleme formu, Silme)
+3. Quiz (Sınav ekranı, doğru/yanlış geri bildirimi, spaced-repetition ilerleme)
+4. Settings (Ayarlar, DailyNewWordCount güncelleme)
+5. Analytics (Rapor sayfası, konu bazlı başarı yüzdesi, print CSS)
+6. Puzzle (3 mini-oyun: eşleştirme, anagram, kelime avı)
+7. ForgotPassword / ResetPassword (eğer gerekirse)
+8. Navbar (üst navigasyon, çıkış butonu)
+
+Frontend dev sunucusu: port 3000 (vite.config.ts'de sabitlendi)
+Backend API: http://localhost:6060/api
+Frontend-Backend bağlantısı: CANLI ve BAŞARILI ✅
 
 ## UI/UX Kuralları (proje notlandırmasında ayrı puan kalemi - 5p)
 - Sade, tutarlı tasarım dili: tüm sayfalarda aynı renk paleti, font, buton stili
